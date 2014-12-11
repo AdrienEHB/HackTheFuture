@@ -43,10 +43,10 @@ public class ActivityOne extends Activity implements View.OnClickListener {
 
                 for (City city : cities.items) {
 
-                    long id = dataFacade.insertCity(city.id, city.name, city.zipcode, city.province, city.alertCode, city.kind);
-                    if (!(id < 0)) {
-                        Log.v(this.getClass().toString(), "Successfully added a city to the database");
-                    }
+                    //long id = dataFacade.insertCity(city.id, city.name, city.zipcode, city.province, city.alertCode, city.kind);
+                    //if (!(id < 0)) {
+                       // Log.v(this.getClass().toString(), "Successfully added a city to the database");
+                    //}
                 }
             }
 
@@ -62,7 +62,7 @@ public class ActivityOne extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         ArrayList<CityFromDb> cities = dataFacade.getCities();
 
-        Log.e(getClass().getName(), String.valueOf(cities.get(55)));
+        Log.e(getClass().getName(), String.valueOf(cities.get(55).getAlertCode()));
 
     }
 }

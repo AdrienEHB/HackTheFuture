@@ -55,7 +55,7 @@ public class CityFromDb implements Serializable {
 
     @Override
     public String toString() {
-        return id + " " + name;
+        return id + " " + cityId + " " + name + " " + zipcode + " " + province + " " + alertCode + " " + kind;
     }
 
 }

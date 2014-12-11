@@ -40,7 +40,7 @@ public class DataFacade {
         ArrayList<CityFromDb> artists = new ArrayList<CityFromDb>();
         SQLiteDatabase database = helper.getReadableDatabase();
 
-        String [] columns = {helper.CITY_ID, helper.CITY_ZIPCODE};
+        String [] columns = {helper.CITY_ID, helper.CITY_CITY_ID, helper.CITY_NAME, helper.CITY_ZIPCODE, helper.CITY_PROVINCE, helper.CITY_ALERTCODE, helper.CITY_KIND};
         Cursor cursor = database.query(helper.TABLE_NAME_CITIES, columns, null, null, null, null, null);
 
         while (cursor.moveToNext()) {
@@ -49,7 +49,7 @@ public class DataFacade {
             long cityId = cursor.getLong(1);
             String name = cursor.getString(2);
             int zipcode = cursor.getInt(3);
-            String province= cursor.getString(4);
+            String province = cursor.getString(4);
             String alertCode = cursor.getString(5);
             String kind = cursor.getString(6);
 
