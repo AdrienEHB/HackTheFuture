@@ -6,8 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import org.json.JSONArray;
-
 import java.util.ArrayList;
 
 import retrofit.Callback;
@@ -43,26 +41,13 @@ public class ActivityOne extends Activity implements View.OnClickListener {
             @Override
             public void success(Cities cities, Response response) {
 
-                JSONArray items = new JSONArray();
-
                 for (City city : cities.items) {
 
                     long id = dataFacade.insertCity(city.id, city.name, city.zipcode, city.province, city.alertCode, city.kind);
                     if (!(id < 0)) {
                         Log.v(this.getClass().toString(), "Successfully added a city to the database");
                     }
-
-                    //JSONObject object = writeJSON(city.id, city.name, city.zipcode, city.province, city.alertCode, city.kind);
-                    //items.put(object);
                 }
-
-                /*try {
-                    Log.e(getClass().getName(), String.valueOf(items.getJSONObject(5)));
-                    Log.e(getClass().getName(), String.valueOf(items.getJSONObject(5).getString("alertcode")));
-                    StringWriter writer = new StringWriter();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }*/
             }
 
             @Override
@@ -80,20 +65,4 @@ public class ActivityOne extends Activity implements View.OnClickListener {
         Log.e(getClass().getName(), String.valueOf(cities.get(55)));
 
     }
-
-    /*public JSONObject writeJSON(long id, String name, int zipcode, String province, String alertCode, String kind ) {
-        JSONObject jsonObject = new JSONObject();
-
-        try {
-            jsonObject.put(("id"), id);
-            jsonObject.put(("name"), name);
-            jsonObject.put(("zipcode"), zipcode);
-            jsonObject.put(("province"), province);
-            jsonObject.put(("alertcode"), alertCode);
-            jsonObject.put(("kind"), kind);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jsonObject;
-    }*/
 }
