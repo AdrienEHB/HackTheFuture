@@ -1,7 +1,7 @@
 package be.ehb.adrienschautteet.hackthefuture;
 
-import java.util.List;
 
+import retrofit.Callback;
 import retrofit.http.GET;
 
 /**
@@ -9,6 +9,6 @@ import retrofit.http.GET;
  */
 public interface GitHubService {
 
-    @GET("cities/v1/citycollection")
-    List<City> cities();
+    @GET("/cities/v1/citycollection")
+    void cities(Callback<Cities> loadData);
 }
